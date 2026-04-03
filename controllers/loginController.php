@@ -2,16 +2,25 @@
 session_start();
 include("../config/db.php");
 
-$user = $_POST['username'];
-$pass = $_POST['password'];
+if (isset($_POST['login'])) {
 
-$sql = "SELECT * FROM usuarios WHERE username='$user' AND password='$pass'";
-$result = $conn->query($sql);
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
 
-if ($result->num_rows > 0) {
-    $_SESSION['user'] = $user;
-    header("Location: ../views/dashboard.php");
-} else {
-    echo "Credenciales incorrectas";
+    $sql = "SELECT * FROM usuarios WHERE username=? AND password=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $user, $pass);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $_SESSION['user'] = $user;
+        header("Location: /callcenter-gitflow-crud/views/dashboard.php");
+        exit();
+    } else {
+        header("Location: /callcenter-gitflow-crud/index.php?error=1");
+        exit();
+    }
 }
 ?>
