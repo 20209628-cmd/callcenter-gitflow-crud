@@ -8,6 +8,7 @@ if (!isset($_SESSION['user'])) {
 
 include("../config/db.php");
 
+// Consultas
 $totalEmpleados = $conn->query("SELECT COUNT(*) as total FROM empleados")->fetch_assoc()['total'];
 $totalLlamadas = $conn->query("SELECT COUNT(*) as total FROM llamadas")->fetch_assoc()['total'];
 $pendientes = $conn->query("SELECT COUNT(*) as total FROM llamadas WHERE estado='Pendiente'")->fetch_assoc()['total'];
@@ -22,16 +23,18 @@ $completadas = $conn->query("SELECT COUNT(*) as total FROM llamadas WHERE estado
 </head>
 <body>
 
+
 <nav class="navbar navbar-dark bg-dark mb-4">
     <div class="container d-flex justify-content-center">
-        <span class="navbar-brand">Call Center System</span>
+        <span class="navbar-brand">Call Center System (Beta)</span>
     </div>
 </nav>
 
 <div class="container">
 
-    <h3>Bienvenido <?php echo $_SESSION['user']; ?></h3>
+    <h3 class="mb-4">Bienvenido <?php echo $_SESSION['user']; ?></h3>
 
+    <!-- TARJETAS -->
     <div class="row text-center mb-4">
 
         <div class="col-md-3">
@@ -72,10 +75,19 @@ $completadas = $conn->query("SELECT COUNT(*) as total FROM llamadas WHERE estado
 
     </div>
 
+    <!-- MENÚ -->
     <div class="list-group">
-        <a href="empleados.php" class="list-group-item">Gestión de Empleados</a>
-        <a href="llamadas.php" class="list-group-item">Gestión de Llamadas</a>
-        <a href="../controllers/logoutController.php" class="list-group-item list-group-item-danger">Cerrar Sesión</a>
+        <a href="empleados.php" class="list-group-item list-group-item-action">
+            Gestión de Empleados
+        </a>
+
+        <a href="llamadas.php" class="list-group-item list-group-item-action">
+            Gestión de Llamadas
+        </a>
+
+        <a href="../controllers/logoutController.php" class="list-group-item list-group-item-danger">
+            Cerrar Sesión
+        </a>
     </div>
 
 </div>

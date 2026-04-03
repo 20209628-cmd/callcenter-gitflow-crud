@@ -7,11 +7,6 @@ if (isset($_POST['login'])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    if (empty($user) || empty($pass)) {
-        header("Location: ../index.php?error=1");
-        exit();
-    }
-
     $sql = "SELECT * FROM usuarios WHERE username=? AND password=?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $user, $pass);
@@ -21,10 +16,10 @@ if (isset($_POST['login'])) {
 
     if ($result->num_rows > 0) {
         $_SESSION['user'] = $user;
-        header("Location: ../views/dashboard.php");
+        header("Location: /callcenter-gitflow-crud/views/dashboard.php");
         exit();
     } else {
-        header("Location: ../index.php?error=1");
+        header("Location: /callcenter-gitflow-crud/index.php?error=1");
         exit();
     }
 }
