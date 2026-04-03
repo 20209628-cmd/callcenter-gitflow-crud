@@ -4,6 +4,13 @@ include("../config/db.php");
 $result = $conn->query("SELECT * FROM empleados");
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container d-flex justify-content-center">
+        <span class="navbar-brand">Call Center System (Beta)</span>
+    </div>
+</nav>
+
 <div class="container mt-5">
     <h2>Empleados</h2>
 

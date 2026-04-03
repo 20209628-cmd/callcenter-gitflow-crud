@@ -23,10 +23,10 @@ $completadas = $conn->query("SELECT COUNT(*) as total FROM llamadas WHERE estado
 </head>
 <body>
 
-<!-- NAVBAR -->
+
 <nav class="navbar navbar-dark bg-dark mb-4">
     <div class="container d-flex justify-content-center">
-        <span class="navbar-brand">Call Center System</span>
+        <span class="navbar-brand">Call Center System (Beta)</span>
     </div>
 </nav>
 
