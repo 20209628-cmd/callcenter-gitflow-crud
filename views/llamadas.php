@@ -9,29 +9,26 @@ $result = $conn->query("SELECT * FROM llamadas");
     <input type="text" name="cliente" placeholder="Cliente" required>
     <input type="datetime-local" name="fecha" required>
     <input type="text" name="estado" placeholder="Estado" required>
-    <button type="submit" name="create">Agregar</button>
+    <button name="create">Agregar</button>
 </form>
 
 <table border="1">
 <tr>
-    <th>ID</th>
-    <th>Cliente</th>
-    <th>Fecha</th>
-    <th>Estado</th>
-    <th>Acciones</th>
+    <th>ID</th><th>Cliente</th><th>Fecha</th><th>Estado</th><th>Acción</th>
 </tr>
 
-<?php while($row = $result->fetch_assoc()) { ?>
+<?php while($row = $result->fetch_assoc()): ?>
 <tr>
-    <td><?php echo $row['id']; ?></td>
-    <td><?php echo $row['cliente']; ?></td>
-    <td><?php echo $row['fecha']; ?></td>
-    <td><?php echo $row['estado']; ?></td>
+    <td><?= $row['id'] ?></td>
+    <td><?= $row['cliente'] ?></td>
+    <td><?= $row['fecha'] ?></td>
+    <td><?= $row['estado'] ?></td>
     <td>
-        <a href="../controllers/llamadasController.php?delete=<?php echo $row['id']; ?>">Eliminar</a>
+        <a href="../controllers/llamadasController.php?delete=<?= $row['id'] ?>">Eliminar</a>
     </td>
 </tr>
-<?php } ?>
+<?php endwhile; ?>
+
 </table>
 
 <a href="dashboard.php">Volver</a>
