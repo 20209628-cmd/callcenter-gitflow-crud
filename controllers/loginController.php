@@ -16,9 +16,11 @@ if (isset($_POST['login'])) {
 
     if ($result->num_rows > 0) {
         $_SESSION['user'] = $user;
-        header("Location: ../views/dashboard.php");
+        header("Location: /callcenter-gitflow-crud/views/dashboard.php");
+        exit();
     } else {
-        header("Location: ../index.php?error=1");
+        header("Location: /callcenter-gitflow-crud/index.php?error=1");
+        exit();
     }
 }
 ?>
