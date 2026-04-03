@@ -4,11 +4,11 @@
 <head>
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
+ develop
     <style>
         body.login-page {
-            /* Fondo con color agradable */
-            background-color: #6c5ce7; /* morado suave, puedes cambiarlo */
+            
+            background-color: #6c5ce7; 
             height: 100vh;
             margin: 0;
             display: flex;
@@ -18,7 +18,7 @@
         }
 
         .login-container {
-            background-color: rgba(255, 255, 255, 0.9); /* caja blanca semitransparente */
+            background-color: rgba(255, 255, 255, 0.9); 
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 0 15px rgba(0,0,0,0.4);
@@ -40,6 +40,7 @@
             border-color: #5a4fcf;
         }
     </style>
+
 </head>
 <body class="login-page">
 
@@ -50,18 +51,26 @@
         <input type="text" name="username" class="form-control mb-3" placeholder="Usuario" required>
         <input type="password" name="password" class="form-control mb-3" placeholder="Contraseña" required>
 
-</head>
-<body>
 
-<div class="container mt-5" style="max-width: 400px;">
+</head>
+<body class="login-page">
+
+<div class="login-container">
     <h3 class="text-center mb-4">Login</h3>
 
     <form method="POST" action="controllers/loginController.php">
+
+        <input type="text" name="username" class="form-control mb-3" placeholder="Usuario" required>
+        <input type="password" name="password" class="form-control mb-3" placeholder="Contraseña" required>
+
         <input type="text" name="username" class="form-control mb-3" placeholder="Usuario">
         <input type="password" name="password" class="form-control mb-3" placeholder="Contraseña"> 
 
+
         <button name="login" class="btn btn-primary w-100">Ingresar</button>
     </form>
+
+feature/login-system
 
 
 <?php if (isset($_GET['logout'])): ?>
@@ -69,6 +78,7 @@
         Sesión cerrada correctamente
     </div>
 <?php endif; ?>
+
 
 
     <?php if (isset($_GET['error'])): ?>
